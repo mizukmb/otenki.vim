@@ -21,6 +21,7 @@ function! otenki#callOtenkiTodayInfo(...)
     let data = otenki#getOtenkiInfo(city_code, 'today')
     return data.location . "の". data.date . "の天気は" . data.telop . "です" 
   else
+    let g:otenki_cityname_data = get(g:, 'otenki_cityname_data', 'tokyo')
     let city_code = s:otenki_location_code_dict[g:otenki_cityname_data]
     let data = otenki#getOtenkiInfo(city_code, 'today')
     return data.location . "の". data.date . "の天気は" . data.telop . "です" 
@@ -33,6 +34,7 @@ function! otenki#callOtenkiTomorrowInfo(...)
     let data = otenki#getOtenkiInfo(city_code, 'tomorrow')
     return data.location . "の". data.date . "の天気は" . data.telop . "です" 
   else
+    let g:otenki_cityname_data = get(g:, 'otenki_cityname_data', 'tokyo')
     let city_code = s:otenki_location_code_dict[g:otenki_cityname_data]
     let data = otenki#getOtenkiInfo(city_code, 'tomorrow')
     return data.location . "の". data.date . "の天気は" . data.telop . "です" 
@@ -45,6 +47,7 @@ function! otenki#callOtenkiAfterTomorrowInfo(...)
     let data = otenki#getOtenkiInfo(city_code, 'afterTomorrow')
     return data.location . "の". data.date . "の天気は" . data.telop . "です" 
   else
+    let g:otenki_cityname_data = get(g:, 'otenki_cityname_data', 'tokyo')
     let city_code = s:otenki_location_code_dict[g:otenki_cityname_data]
     let data = otenki#getOtenkiInfo(city_code, 'afterTomorrow')
     return data.location . "の". data.date . "の天気は" . data.telop . "です" 
