@@ -1,7 +1,3 @@
-if !exists(g:otenki_cityname_data)
-  let g:otenki_cityname_data = 'tokyo'
-endif
-
 function! otenki#getOtenkiInfo(city, day)
   let res = webapi#http#get('http://weather.livedoor.com/forecast/webservice/json/v1', { "city": a:city })
 
