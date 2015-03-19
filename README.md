@@ -22,11 +22,9 @@ otenki.vimと一緒にインストールをお願いします。
 :OtenkiTomorrow chiba # 千葉県千葉の明日の天気は曇りです
 ```
 
-グローバル変数 `g:otenki_cityname_data` に見たい地名を指定することもできます。
-これにより、デフォルトの地名の変更が可能です。（ない場合は東京がデフォルトとなります）
+グローバル変数 `g:otenki_cityname_data` に見たい地名を指定してください。
 
 ```
-:Otenki # 東京都東京の今日の天気は雨です
 :g:otenki_cityname_data = "morioka"
 :Otenki # 岩手県盛岡の今日の天気は晴れです
 ```
