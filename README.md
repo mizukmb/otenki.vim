@@ -2,6 +2,8 @@
 ## 概要
 otenki.vimはVimで天気予報が見れるシンプルなプラグインです。
 
+![otenki.vim](http://i.imgur.com/o6sgbL8.gif)
+
 ## インストール
 このプラグインは [mattn/web-api](https://github.com/mattn/webapi-vim)を利用しています。
 otenki.vimと一緒にインストールをお願いします。
