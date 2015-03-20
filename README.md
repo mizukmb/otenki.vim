@@ -35,6 +35,7 @@ vimrcに記述して下さい。
 
 引数に指定する地名はローマ字でお願いします（tokyo, kobeなど）。
 地名一覧は[こちら](http://weather.livedoor.com/forecast/rss/primary_area.xml)の **cityタグのtitle** を参照下さい。
+Wikiにも書いたのでそちらからもどうぞ。
 
 
 ## 利用APIについて
