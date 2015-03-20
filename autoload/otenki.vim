@@ -15,43 +15,11 @@ function! otenki#getOtenkiInfo(city, day)
   return {'location': location, 'date': date, 'telop': telop}
 endfunction
 
-function! otenki#callOtenkiTodayInfo(...)
-  if a:0 >= 1
-    let city_code = s:otenki_location_code_dict[a:1]
-    let data = otenki#getOtenkiInfo(city_code, 'today')
+function! otenki#callOtenkiInfo(day, ...)
+  let city = get(a:, 1, g:otenki_cityname_data)
+    let city_code = s:otenki_location_code_dict[city]
+    let data = otenki#getOtenkiInfo(city_code, a:day)
     return data.location . "の". data.date . "の天気は" . data.telop . "です" 
-  else
-    let g:otenki_cityname_data = get(g:, 'otenki_cityname_data', 'tokyo')
-    let city_code = s:otenki_location_code_dict[g:otenki_cityname_data]
-    let data = otenki#getOtenkiInfo(city_code, 'today')
-    return data.location . "の". data.date . "の天気は" . data.telop . "です" 
-  endif
-endfunction
-
-function! otenki#callOtenkiTomorrowInfo(...)
-  if a:0 >= 1
-    let city_code = s:otenki_location_code_dict[a:1]
-    let data = otenki#getOtenkiInfo(city_code, 'tomorrow')
-    return data.location . "の". data.date . "の天気は" . data.telop . "です" 
-  else
-    let g:otenki_cityname_data = get(g:, 'otenki_cityname_data', 'tokyo')
-    let city_code = s:otenki_location_code_dict[g:otenki_cityname_data]
-    let data = otenki#getOtenkiInfo(city_code, 'tomorrow')
-    return data.location . "の". data.date . "の天気は" . data.telop . "です" 
-  endif
-endfunction
-
-function! otenki#callOtenkiAfterTomorrowInfo(...)
-  if a:0 >= 1
-    let city_code = s:otenki_location_code_dict[a:1]
-    let data = otenki#getOtenkiInfo(city_code, 'afterTomorrow')
-    return data.location . "の". data.date . "の天気は" . data.telop . "です" 
-  else
-    let g:otenki_cityname_data = get(g:, 'otenki_cityname_data', 'tokyo')
-    let city_code = s:otenki_location_code_dict[g:otenki_cityname_data]
-    let data = otenki#getOtenkiInfo(city_code, 'afterTomorrow')
-    return data.location . "の". data.date . "の天気は" . data.telop . "です" 
-  endif
 endfunction
 
 let s:otenki_location_code_dict = {
