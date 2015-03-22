@@ -29,7 +29,7 @@ otenki.vimと一緒にインストールをお願いします。
 vimrcに記述して下さい。
 
 ```
-:g:otenki_cityname_data = "morioka"
+:let g:otenki_cityname_data = "morioka"
 :Otenki # 岩手県盛岡の今日の天気は晴れです
 ```
 
