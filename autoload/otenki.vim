@@ -17,9 +17,16 @@ endfunction
 
 function! otenki#callOtenkiInfo(day, ...)
   let city = get(a:, 1, g:otenki_cityname_data)
-    let city_code = s:otenki_location_code_dict[city]
-    let data = otenki#getOtenkiInfo(city_code, a:day)
-    return data.location . "の". data.date . "の天気は" . data.telop . "です" 
+  let city_code = s:otenki_location_code_dict[city]
+  let data = otenki#getOtenkiInfo(city_code, a:day)
+  return data.location . "の". data.date . "の天気は" . data.telop . "です" 
+endfunction
+
+function! otenki#callOtenkiInfoSimple()
+  let city = g:otenki_cityname_data
+  let city_code = s:otenki_location_code_dict[city]
+  let data = otenki#getOtenkiInfo(city_code, 'today')
+  return data.location . "|" . data.telop
 endfunction
 
 let s:otenki_location_code_dict = {
