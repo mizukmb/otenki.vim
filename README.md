@@ -43,10 +43,10 @@ Wikiにも書いたのでそちらからもどうぞ。
 vimrcに以下のように記述して下さい。
 
 ```
-set statusline=%!g:MyStatusOtenki
+set statusline=%{g:MyStatusOtenki}
 ```
 
-各種ステータスラインプラグイン（e.x. lightline,vim等）を利用している場合は、上記の方法では設定できない可能性がございます。
+各種ステータスラインプラグイン（e.x. [lightline.vim](https://github.com/itchyny/lightline.vim)等）を利用している場合は、上記の方法では設定できない可能性がございます。
 
 ## 利用APIについて
 天気情報はlivedoor提供の[お天気Webサービス](http://weather.livedoor.com/weather_hacks/webservice)を使用しています。
