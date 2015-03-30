@@ -16,7 +16,7 @@ function! otenki#getOtenkiInfo(city, day)
   let date = otenki_json.forecasts[date_num].dateLabel
   let telop = otenki_json.forecasts[date_num].telop
 
-  return {'location': location, 'date': date, 'telop': telop}
+  return {'pref': pref,'city': city, 'location': location, 'date': date, 'telop': telop}
 endfunction
 
 function! otenki#callOtenkiInfo(day, ...)
@@ -38,7 +38,7 @@ function! otenki#callOtenkiInfoSimple()
   if data == -1
     return 'Error!!'
   endif
-  return data.location . "|" . data.telop
+  return data.city . "|" . data.telop
 endfunction
 
 let s:otenki_location_code_dict = {
