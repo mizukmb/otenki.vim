@@ -1,6 +1,10 @@
 function! otenki#getOtenkiInfo(city, day)
   let res = webapi#http#get('http://weather.livedoor.com/forecast/webservice/json/v1', { "city": a:city })
 
+  if res.status == 500
+    return -1
+  endif
+
   let date_dict = {'today': 0, 'tomorrow': 1, 'afterTomorrow': 2}
   let date_num = date_dict[a:day]
 
@@ -19,6 +23,10 @@ function! otenki#callOtenkiInfo(day, ...)
   let city = get(a:, 1, g:otenki_cityname_data)
   let city_code = s:otenki_location_code_dict[city]
   let data = otenki#getOtenkiInfo(city_code, a:day)
+
+  if data == -1
+    return 'Error!! Your PC isn''t connected to the Internet.'
+  endif
   return data.location . "の". data.date . "の天気は" . data.telop . "です" 
 endfunction
 
@@ -26,6 +34,10 @@ function! otenki#callOtenkiInfoSimple()
   let city = g:otenki_cityname_data
   let city_code = s:otenki_location_code_dict[city]
   let data = otenki#getOtenkiInfo(city_code, 'today')
+
+  if data == -1
+    return 'Error!!'
+  endif
   return data.location . "|" . data.telop
 endfunction
 
