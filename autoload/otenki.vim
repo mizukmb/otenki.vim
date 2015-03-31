@@ -21,11 +21,16 @@ endfunction
 
 function! otenki#callOtenkiInfo(day, ...)
   let city = get(a:, 1, g:otenki_cityname_data)
+
+  if !has_key(s:otenki_location_code_dict, city)
+    return 'Error!! Not exist city name. > ' . city
+  endif
+
   let city_code = s:otenki_location_code_dict[city]
   let data = otenki#getOtenkiInfo(city_code, a:day)
 
   if data.status == 500
-    return 'Error!! Your PC isn''t connected to the Internet.'
+   return 'Error!! Your PC isn''t connected to the Internet.'
   endif
   return data.location . "の". data.date . "の天気は" . data.telop . "です" 
 endfunction
