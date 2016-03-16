@@ -20,6 +20,8 @@ function! otenki#getOtenkiInfo(city, day)
 endfunction
 
 function! otenki#callOtenkiInfo(day, ...)
+  let g:otenki_cityname_data = get(g:, 'otenki_cityname_data', 'tokyo')
+
   let city = get(a:, 1, g:otenki_cityname_data)
 
   if !has_key(s:otenki_location_code_dict, city)
